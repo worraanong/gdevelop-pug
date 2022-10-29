@@ -1432,12 +1432,6 @@
               "name": "KeyToPress",
               "type": "number",
               "value": 0
-            },
-            {
-              "folded": true,
-              "name": "DefaultWalk",
-              "type": "boolean",
-              "value": true
             }
           ],
           "effects": [],
@@ -3490,39 +3484,10 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "ObjectVariableAsBoolean"
+                    "value": "DepartScene"
                   },
                   "parameters": [
-                    "Player",
-                    "DefaultWalk",
-                    "True"
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SetAnimationName"
-                  },
-                  "parameters": [
-                    "Player",
-                    "\"walk\""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "ObjectVariableAsBoolean"
-                  },
-                  "parameters": [
-                    "Player",
-                    "DefaultWalk",
-                    "True"
+                    ""
                   ]
                 }
               ],
@@ -3535,22 +3500,7 @@
                     "Player",
                     "\"idle\""
                   ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "DepartScene"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
+                },
                 {
                   "type": {
                     "value": "ModVarScene"
@@ -3703,16 +3653,6 @@
                     "PlayerHealth",
                     "\"165;200;100\""
                   ]
-                },
-                {
-                  "type": {
-                    "value": "SetObjectVariableAsBoolean"
-                  },
-                  "parameters": [
-                    "Player",
-                    "DefaultWalk",
-                    "False"
-                  ]
                 }
               ]
             }
@@ -3830,59 +3770,14 @@
                       ]
                     }
                   ],
-                  "actions": [],
-                  "events": [
+                  "actions": [
                     {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "inverted": true,
-                            "value": "ObjectVariableAsBoolean"
-                          },
-                          "parameters": [
-                            "Player",
-                            "DefaultWalk",
-                            "True"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "SetAnimationName"
-                          },
-                          "parameters": [
-                            "Player",
-                            "\"idle\""
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "ObjectVariableAsBoolean"
-                          },
-                          "parameters": [
-                            "Player",
-                            "DefaultWalk",
-                            "True"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "SetAnimationName"
-                          },
-                          "parameters": [
-                            "Player",
-                            "\"walk\""
-                          ]
-                        }
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Player",
+                        "\"idle\""
                       ]
                     }
                   ]
@@ -4086,61 +3981,6 @@
                             "no"
                           ]
                         }
-                      ],
-                      "events": [
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "inverted": true,
-                                "value": "ObjectVariableAsBoolean"
-                              },
-                              "parameters": [
-                                "Player",
-                                "DefaultWalk",
-                                "True"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "SetAnimationName"
-                              },
-                              "parameters": [
-                                "Player",
-                                "\"idle\""
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "ObjectVariableAsBoolean"
-                              },
-                              "parameters": [
-                                "Player",
-                                "DefaultWalk",
-                                "True"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "SetAnimationName"
-                              },
-                              "parameters": [
-                                "Player",
-                                "\"walk\""
-                              ]
-                            }
-                          ]
-                        }
                       ]
                     }
                   ]
@@ -4177,82 +4017,25 @@
                   ]
                 },
                 {
-                  "disabled": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
                       "type": {
-                        "inverted": true,
-                        "value": "PlatformBehavior::PlatformerObjectBehavior::IsMovingEvenALittle"
+                        "value": "AnyKeyReleased"
                       },
                       "parameters": [
-                        "Player",
-                        "PlatformerObject"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "AnimationName"
-                      },
-                      "parameters": [
-                        "Player",
-                        "\"walk\""
+                        "Player"
                       ]
                     }
                   ],
-                  "actions": [],
-                  "events": [
+                  "actions": [
                     {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "ObjectVariableAsBoolean"
-                          },
-                          "parameters": [
-                            "Player",
-                            "DefaultWalk",
-                            "True"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "SetAnimationName"
-                          },
-                          "parameters": [
-                            "Player",
-                            "\"walk\""
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "inverted": true,
-                            "value": "ObjectVariableAsBoolean"
-                          },
-                          "parameters": [
-                            "Player",
-                            "DefaultWalk",
-                            "True"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "SetAnimationName"
-                          },
-                          "parameters": [
-                            "Player",
-                            "\"idle\""
-                          ]
-                        }
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Player",
+                        "\"idle\""
                       ]
                     }
                   ]
@@ -4261,6 +4044,11 @@
             }
           ],
           "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": []
         },
         {
           "colorB": 228,
