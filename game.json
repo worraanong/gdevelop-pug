@@ -1206,14 +1206,14 @@
         },
         {
           "angle": 0,
-          "customSize": false,
-          "height": 0,
+          "customSize": true,
+          "height": 600,
           "layer": "Hidden",
           "locked": false,
           "name": "Dummy",
           "persistentUuid": "a7a2a607-bb0b-41fa-affe-41fc395e7b7f",
-          "width": 0,
-          "x": 993,
+          "width": 576,
+          "x": 1184,
           "y": 328,
           "zOrder": 10,
           "numberProperties": [],
@@ -1261,8 +1261,8 @@
           "name": "NewText",
           "persistentUuid": "a09bf71c-819b-480f-b30b-031286eb2adc",
           "width": 0,
-          "x": 283,
-          "y": 64,
+          "x": 192,
+          "y": 105,
           "zOrder": 15,
           "numberProperties": [],
           "stringProperties": [],
@@ -1277,8 +1277,8 @@
           "name": "log",
           "persistentUuid": "3f70da10-2a39-480e-ba53-53220fe97338",
           "width": 0,
-          "x": 1344,
-          "y": 32,
+          "x": 1221,
+          "y": 105,
           "zOrder": 16,
           "numberProperties": [],
           "stringProperties": [],
@@ -1325,8 +1325,8 @@
           "name": "ShockbarGauge",
           "persistentUuid": "49f9f280-19dd-4bd0-8e38-3f6b621c2da9",
           "width": 0,
-          "x": 1440,
-          "y": 201,
+          "x": 512,
+          "y": 160,
           "zOrder": 23,
           "numberProperties": [],
           "stringProperties": [],
@@ -3018,6 +3018,52 @@
                   ]
                 }
               ]
+            },
+            {
+              "name": "crouch",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.800000011920929,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "crouch.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "idle_0.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -3556,6 +3602,15 @@
                   "parameters": [
                     "",
                     "\"Distance\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "FlipX"
+                  },
+                  "parameters": [
+                    "Dummy",
+                    "yes"
                   ]
                 }
               ]
@@ -4717,6 +4772,24 @@
                     "=",
                     "RandomFloatInRange(7, 25)"
                   ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Dummy",
+                    "\"crouch\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Dummy",
+                    "\"\""
+                  ]
                 }
               ]
             }
@@ -4728,10 +4801,17 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "name": "Stroll",
+          "folded": true,
+          "name": "Stroll end",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
-          "events": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            }
+          ],
           "parameters": []
         },
         {
@@ -4752,15 +4832,6 @@
           "actions": [
             {
               "type": {
-                "value": "Delete"
-              },
-              "parameters": [
-                "DistanceText",
-                ""
-              ]
-            },
-            {
-              "type": {
                 "value": "AddForceXY"
               },
               "parameters": [
@@ -4769,8 +4840,61 @@
                 "0",
                 "0"
               ]
+            },
+            {
+              "type": {
+                "value": "ChangeLayer"
+              },
+              "parameters": [
+                "HealthBarFrame",
+                "\"\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeLayer"
+              },
+              "parameters": [
+                "Dummy",
+                "\"\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PauseTimer"
+              },
+              "parameters": [
+                "",
+                "\"RandomCollar\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeLayer"
+              },
+              "parameters": [
+                "EnemyHealth",
+                "\"\""
+              ]
             }
           ]
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Boss AI",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            }
+          ],
+          "parameters": []
         },
         {
           "colorB": 228,
@@ -4782,7 +4906,6 @@
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
-              "disabled": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
